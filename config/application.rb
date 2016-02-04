@@ -16,7 +16,7 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups)
 
 # Load application ENV vars and merge with existing ENV vars. Loaded here so can use values in initializers.
-ENV.update YAML.load_file('config/application.yml')[Rails.env] rescue {}
+# ENV.update YAML.load_file('config/application.yml')[Rails.env] rescue {}
 
 module Blocmarks
   class Application < Rails::Application
@@ -34,5 +34,14 @@ module Blocmarks
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # skip view, test framework, assets, helper, scaffolds.css
+    config.generators do |g|
+      g.template_engine nil
+      g.test_framework  nil
+      g.assets  false
+      g.helper false
+      g.stylesheets false
+    end
   end
 end
