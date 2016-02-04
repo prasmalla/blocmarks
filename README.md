@@ -1,5 +1,5 @@
-### blocipedia
+### blocmarks
 ***
-SaaS Wiki Collaboration Tool
+Social Bookmarking With Email Integration
 
-https://prasmalla-blocipedia.herokuapp.com/
+https://prasmalla-blocmarks.herokuapp.com/
