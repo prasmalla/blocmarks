@@ -20,3 +20,15 @@ user.save!
   user.skip_confirmation!
   user.save! 
 end
+users = User.all
+
+# topics
+6.times do
+  Topic.create(user: users.sample, title: Faker::Hipster.sentence(2))
+end
+topics = Topic.all
+
+# bookmarks
+9.times do
+  Bookmark.create(topic: topics.sample, url: Faker::Internet.url)
+end

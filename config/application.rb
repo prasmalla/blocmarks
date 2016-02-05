@@ -37,7 +37,7 @@ module Blocmarks
 
     # skip view, test framework, assets, helper, scaffolds.css
     config.generators do |g|
-      g.template_engine nil
+      # g.template_engine nil
       g.test_framework  nil
       g.assets  false
       g.helper false

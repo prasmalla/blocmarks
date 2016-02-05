@@ -16,5 +16,7 @@ class IncomingController < ApplicationController
     topic = Topic.create(title: params[:subject], user: user) if topic.nil?
     
     Bookmark.create(topic: topic, url: url)
+
+    head 200
   end
 end

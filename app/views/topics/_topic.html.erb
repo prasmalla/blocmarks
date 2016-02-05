@@ -1,0 +1,17 @@
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= link_to topic.title, topic %>
+      <small>
+        <%= link_to topic, method: :delete, title: 'Delete', data: { confirm: 'Delete topic?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+      </small>
+    </h4>
+  </div>
+</div>
+<div class="row">
+  <% topic.bookmarks.each_with_index do |bookmark, i| %>
+    <%= render partial: 'bookmark', locals: { bookmark: bookmark } unless i > 3 %>
+  <% end %>
+</div>

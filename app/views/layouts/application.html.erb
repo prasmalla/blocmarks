@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blocitoff</title>
+  <title>Blocmarks</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,6 +16,13 @@
 <body>
   <div class="container">
     <%= bootstrap_flash flash %>
+  <div class="row">
+    <%= link_to root_path, class: 'btn btn-default pull-left' do %>
+      <i class="glyphicon glyphicon-th-list"></i> All Bookmarks
+    <% end %>
+    <%= link_to new_topic_path, class: 'btn btn-default pullleft' do %>
+      <i class="glyphicon glyphicon-plus"></i> Add Topic
+    <% end %>
     <div class="pull-right user-info">
       <% if current_user %>
         Hello <%= link_to current_user.name, current_user %>!
@@ -25,6 +32,9 @@
         <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
           <span class="glyphicon glyphicon-log-out"></span>
         <% end %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path %> or
+        <%= link_to "Sign Up", new_user_registration_path %>
       <% end %>
     </div>
     
