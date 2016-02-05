@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= t('.wiki_edit', default: 'Edit topic') %></h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for @topic do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+      <%= f.submit t('.edit', :default => "Edit topic"), class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
