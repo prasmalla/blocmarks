@@ -8,11 +8,14 @@
             <%= link_to edit_topic_path, class: 'btn btn-default pull-right' do %>
               <i class="glyphicon glyphicon-edit"></i> Edit
             <% end %>
-            <%= link_to @topic, method: :delete, class: 'btn btn-default pull-right', data: { confirm: 'Are you sure you want to delete this wiki?' } do %>
+            <%= link_to @topic, method: :delete, class: 'btn btn-default pull-right', data: { confirm: 'Are you sure you want to delete this topic?' } do %>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
           </small>
         </h2>
+        <%= link_to new_topic_bookmark_path(@topic), class: 'btn btn-default' do %>
+          <i class="glyphicon glyphicon-plus"></i> Add Bookmark
+        <% end %>
       </div>
     </div>
   </div>

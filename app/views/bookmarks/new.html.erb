@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= t('.bookmark_add', default: 'Add bookmark') %></h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for [@topic, @bookmark] do |f| %>
+      <div class="form-group">
+        <%= f.label :url %>
+        <%= f.text_field :url, autofocus: true, class: 'form-control' %>
+      </div>
+      <%= f.submit t('.create', :default => "Create bookmark"), class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
