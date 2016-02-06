@@ -1,4 +1,12 @@
 <div class="well well-lg">
-  <h4><%= @user.name %> <small><%= link_to 'Edit', edit_user_registration_path %></small></h4>
-  <h6><%= @user.email %></h6>
+  <h4 class="text-center">my bookmarks</h4>
+  <% @created_bookmarks.group_by(&:topic).each do |topic, bookmarks| %>
+    <%= render partial: 'topic', locals: { topic: topic, bookmarks: bookmarks, destroy_bookmark: true } %>
+  <% end %>
+</div>
+<div class="well well-lg">
+  <h4 class="text-center">liked bookmarks</h4>
+  <% @liked_bookmarks.group_by(&:topic).each do |topic, bookmarks| %>
+    <%= render partial: 'topic', locals: { topic: topic, bookmarks: bookmarks } %>
+  <% end %>
 </div>

@@ -1,0 +1,7 @@
+$(".alert").remove()
+<% if @bookmark.destroyed? %>
+  $(<%= dom_id( @bookmark ) %>).fadeOut(300)
+  $(".container > .row").prepend("<div class='alert alert-success'><%= flash[:notice] %><button type='button' class='close' data-dismiss='alert'>&times;</button></div>")
+<% else %>
+  $(".container > .row").prepend("<div class='alert alert-danger'><%= flash[:error] %><button type='button' class='close' data-dismiss='alert'>&times;</button></div>")
+<% end %>

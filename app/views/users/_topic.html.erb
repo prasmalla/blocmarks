@@ -1,6 +1,6 @@
 <%= content_tag_for :div, topic, class: "row" do %>
   <div>
-    <h4 class="text-center">
+    <h3>
       <%= link_to "##{topic.title}", topic %>
       <small>
         <% if policy(topic).destroy? %>
@@ -9,11 +9,9 @@
           <% end %>
         <% end %>
       </small>
-    </h4>
+    </h3>
     <div class="row">
-      <% #FIX include limit and/or return popular %>
-      <%= render topic.bookmarks.limit(4) %>
+      <%= render bookmarks %>
     </div>
   </div> 
-
 <% end %>
