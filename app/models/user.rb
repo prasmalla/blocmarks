@@ -7,8 +7,13 @@ class User < ActiveRecord::Base
 
   has_many :topics, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def admin?
     role == 'admin'
+  end
+
+  def liked(bookmark_id)
+    likes.where(bookmark_id: bookmark_id).first
   end
 end

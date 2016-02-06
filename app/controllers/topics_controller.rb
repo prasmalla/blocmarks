@@ -15,8 +15,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params.require(:topic).permit(:title))
-    @topic.user = current_user
+    @topic = current_user.topics.build(params.require(:topic).permit(:title))
     authorize @topic
 
     if @topic.save
