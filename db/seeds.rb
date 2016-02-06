@@ -5,7 +5,7 @@ user = User.new(
   name: 'admin user',
   email: 'default@user.com',
   password: 'dafault1',
-  # role: 'admin'
+  role: 'admin'
 )
 user.skip_confirmation!
 user.save!
@@ -24,11 +24,11 @@ users = User.all
 
 # topics
 6.times do
-  Topic.create(user: users.sample, title: Faker::Hipster.sentence(2))
+  Topic.create(user: users.sample, title: Faker::Hipster.sentence(1, false, 1).chop)
 end
 topics = Topic.all
 
 # bookmarks
 9.times do
-  Bookmark.create(topic: topics.sample, url: Faker::Internet.url)
+  Bookmark.create(topic: topics.sample, url: Faker::Internet.url, user: users.sample)
 end

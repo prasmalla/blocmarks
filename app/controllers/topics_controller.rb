@@ -11,11 +11,13 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    authorize @topic
   end
 
   def create
     @topic = Topic.new(params.require(:topic).permit(:title))
     @topic.user = current_user
+    authorize @topic
 
     if @topic.save
       flash[:notice] = "Topic created!"
@@ -53,5 +55,6 @@ private
   
   def set_topic
     @topic = Topic.find(params[:id])
+    authorize @topic
   end
 end

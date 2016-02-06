@@ -20,8 +20,10 @@
     <%= link_to root_path, class: 'btn btn-default pull-left' do %>
       <i class="glyphicon glyphicon-th-list"></i> All Bookmarks
     <% end %>
-    <%= link_to new_topic_path, class: 'btn btn-default' do %>
-      <i class="glyphicon glyphicon-plus"></i> Add Topic
+    <% if policy(Topic.new).create? %>
+      <%= link_to new_topic_path, class: 'btn btn-default' do %>
+        <i class="glyphicon glyphicon-plus"></i> Add Topic
+      <% end %>
     <% end %>
     <div class="pull-right user-info">
       <% if current_user %>
@@ -37,6 +39,7 @@
         <%= link_to "Sign Up", new_user_registration_path %>
       <% end %>
     </div>
+    <div class="clearfix"></div>
     
     <%= yield %>
   </div>
