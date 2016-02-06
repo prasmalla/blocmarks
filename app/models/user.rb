@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
          :confirmable, :lockable
 
   has_many :topics, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+
+  def admin?
+    role == 'admin'
+  end
 end
