@@ -1,5 +1,8 @@
  <%= content_tag_for :div, bookmark, class: 'col-xs-12 col-md-3 col-lg-3' do %>
-  <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
+  <%= link_to [bookmark.topic, bookmark] do %>
+    <%= cl_image_tag(bookmark.url, sign_url: true, type: "url2png", width: '280', class: 'center-block') %>
+    <span class="center-block text-center"><%= bookmark.url %></span>
+  <% end %>
   <div align="center">
     <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
     <% if policy(bookmark).destroy? %>

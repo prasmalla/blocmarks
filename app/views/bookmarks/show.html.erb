@@ -3,7 +3,10 @@
     <div class="media">
       <div class="media-body">
         <h5 class="media-heading">
-          <%= link_to @bookmark.url, @bookmark.url, target: '_blank' %>
+          <%= link_to @bookmark.url, target: '_blank' do %>
+            <%= cl_image_tag(@bookmark.url, sign_url: true, type: "url2png", width: '280', class: 'center-block') %>
+            <span class="center-block text-center"><%= @bookmark.url %></span>
+          <% end %>
           <% if policy(@bookmark).edit? %>
             <small>
               <%= link_to edit_topic_bookmark_path, class: 'btn btn-default pull-right' do %>
