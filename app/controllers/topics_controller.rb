@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.includes(:bookmarks).find(params[:id])
+    redirect_to @topic, status: :moved_permanently if request.path != topic_path(@topic)
   end
 
   def new
